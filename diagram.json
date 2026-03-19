@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "author": "Gabryel FIllipe Calvalcanti da Silva",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 16.2, "left": 31.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 28.8, "left": -100.76, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 25.2,
+      "left": 186.2,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 25.2,
+      "left": 61.8,
+      "attrs": { "color": "limegreen", "flip": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 110.4,
+      "left": 47.45,
+      "rotate": 90,
+      "attrs": { "value": "200" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 120,
+      "left": 172.25,
+      "rotate": 90,
+      "attrs": { "value": "200" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "led1:A", "bb1:16t.a", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:17t.a", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:3t.a", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:4t.a", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:3t.c", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:3b.g", "", [ "$bb" ] ],
+    [ "esp:18", "r1:2", "white", [ "v9.6", "h76.8" ] ],
+    [ "r2:1", "bb1:16t.d", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:16b.h", "", [ "$bb" ] ],
+    [ "esp:19", "r2:2", "green", [ "h9.6", "v38.4", "h192" ] ],
+    [ "bb1:4t.b", "bb1:tn.3", "green", [ "v0" ] ],
+    [ "bb1:17t.b", "bb1:tn.14", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
